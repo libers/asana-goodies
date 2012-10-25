@@ -1,0 +1,32 @@
+{
+  "name": "Asana Goodies",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Asana Goodies for Chrome: display extended information about",
+  "icons": {
+    "128": "icon128.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icon19.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "http://app.asana.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+      "*://app.asana.com/*"
+    ],
+      "css": ["css/content_script.css"],
+      "js": [
+          "js/jquery-1.7.1.min.js",
+          "js/bootstrap.min.js",
+          "js/underscore.js",
+          "js/backbone.js",
+          "js/asana_api.js",
+          "js/content_script.js"]
+    }
+  ]
+}
