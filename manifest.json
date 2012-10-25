@@ -1,8 +1,8 @@
 {
   "name": "Asana Goodies",
-  "version": "1.0",
+  "version": "1.0.2",
   "manifest_version": 2,
-  "description": "Asana Goodies for Chrome: display extended information about",
+  "description": "Asana Goodies for Chrome: extended subtask summary, Trello icons, and inline image display",
   "icons": {
     "128": "icon128.png"
   },

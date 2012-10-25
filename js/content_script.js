@@ -512,26 +512,7 @@
   };
 
   show_picture_mutation_handler = function(event, mutations) {
-    var added_node, mutation_record, _i, _len, _results;
-    _results = [];
-    for (_i = 0, _len = mutations.length; _i < _len; _i++) {
-      mutation_record = mutations[_i];
-      if (mutation_record.addedNodes && $(mutation_record.target).parents('#right_pane').length) {
-        _results.push((function() {
-          var _j, _len1, _ref, _results1;
-          _ref = mutation_record.addedNodes;
-          _results1 = [];
-          for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
-            added_node = _ref[_j];
-            _results1.push(show_task_pictures(added_node));
-          }
-          return _results1;
-        })());
-      } else {
-        _results.push(void 0);
-      }
-    }
-    return _results;
+    return show_task_pictures('#right_pane');
   };
 
   asana_event_listener.on("mutations", show_picture_mutation_handler);

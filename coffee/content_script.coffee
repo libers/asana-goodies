@@ -333,10 +333,7 @@ show_task_pictures = (root) ->
 
 
 show_picture_mutation_handler = (event, mutations)->
-    for mutation_record in mutations
-        if mutation_record.addedNodes and $(mutation_record.target).parents('#right_pane').length
-            for added_node in mutation_record.addedNodes
-                show_task_pictures(added_node)
+    show_task_pictures('#right_pane')
 
 
 
@@ -357,40 +354,6 @@ asana_event_listener.start()
 #asana_event_listener.on "hide_subtask", logger_with_event
 #asana_event_listener.on "change_subtask", logger_with_event
 
-#
-#$('body').append """
-#<script>
-#(function () {
-#    var get_xhr;
-#    if (!window.MochiKit) console.log("No MochiKit found!");
-#    get_xhr = window.MochiKit.Async.getXMLHttpRequest;
-#    window.MochiKit.Async.getXMLHttpRequest = function () {
-#        var xhr;
-#        xhr = get_xhr();
-#        console.log("New XHR!!!", xhr);
-#        xhr.addEventListener("load", function (evt) {
-#            console.log("Request completed");
-#            console.log(evt);
-#            console.log(evt.target._url);
-#
-#        });
-#        return xhr;
-#    }
-#})();
-#</script>
-#"""
-
-#setTimeout (() ->
-#    get_xhr = window.MochiKit.Async.getXMLHttpRequest
-#
-#    window.MochiKit.Async.getXMLHttpRequest = () ->
-#        xhr = get_xhr()
-#        console.log "New XHR!!!"
-#        xhr.addEventListener "load", (evt) ->
-#            console.log("Request completed")
-#            console.log(evt)
-#        xhr
-#    ), 3000
 
 
 
